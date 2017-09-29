@@ -5,6 +5,7 @@ public class Main {
         Partido[] partidos = new Metodos().criaPartidos();
         
         System.out.println(new Metodos().votar("11123", partidos));
-        System.out.println(partidos[0].getCandidatos().get(0).getNumVotos());        
+        System.out.println(partidos[0].getCandidatos().get(0).getNumVotos());  
+        aaa
     }
 }
