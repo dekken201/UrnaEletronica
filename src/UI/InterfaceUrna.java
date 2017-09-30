@@ -5,6 +5,8 @@
  */
 package UI;
 
+import javax.swing.JLabel;
+
 /**
  *
  * @author Luke
@@ -12,7 +14,7 @@ package UI;
 public class InterfaceUrna extends javax.swing.JPanel {
 
     int contadorCampos = 0;
-    Object[] campos = new Object[5];
+    JLabel[] campos = new JLabel[5];
     StringBuilder voto = new StringBuilder();
 
     public InterfaceUrna() {
@@ -23,6 +25,11 @@ public class InterfaceUrna extends javax.swing.JPanel {
         campos[3] = lblCampo3;
         campos[4] = lblCampo4;
 
+    }
+
+    public void clicaBotao(int contador, String nBotao) {
+        campos[contador].setText(nBotao);
+        contadorCampos++;
     }
 
     /**
@@ -67,18 +74,53 @@ public class InterfaceUrna extends javax.swing.JPanel {
         });
 
         btn3.setText("3");
+        btn3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn3ActionPerformed(evt);
+            }
+        });
 
         btn4.setText("4");
+        btn4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn4ActionPerformed(evt);
+            }
+        });
 
         btn5.setText("5");
+        btn5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn5ActionPerformed(evt);
+            }
+        });
 
         btn6.setText("6");
+        btn6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn6ActionPerformed(evt);
+            }
+        });
 
         btn7.setText("7");
+        btn7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn7ActionPerformed(evt);
+            }
+        });
 
         btn8.setText("8");
+        btn8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn8ActionPerformed(evt);
+            }
+        });
 
         btn9.setText("9");
+        btn9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn9ActionPerformed(evt);
+            }
+        });
 
         btnBranco.setText("branco");
 
@@ -179,16 +221,41 @@ public class InterfaceUrna extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn1ActionPerformed
-        campos[contadorCampos] = "1";
-        contadorCampos++;
+        clicaBotao(contadorCampos, "1");
     }//GEN-LAST:event_btn1ActionPerformed
 
     private void btn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn2ActionPerformed
-        campos[contadorCampos] = "2";
-        contadorCampos++;
+        clicaBotao(contadorCampos, "2");
     }//GEN-LAST:event_btn2ActionPerformed
 
-    
+    private void btn3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn3ActionPerformed
+        clicaBotao(contadorCampos, "3");
+    }//GEN-LAST:event_btn3ActionPerformed
+
+    private void btn4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn4ActionPerformed
+        clicaBotao(contadorCampos, "4");
+    }//GEN-LAST:event_btn4ActionPerformed
+
+    private void btn5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn5ActionPerformed
+        clicaBotao(contadorCampos, "5");
+    }//GEN-LAST:event_btn5ActionPerformed
+
+    private void btn6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn6ActionPerformed
+        clicaBotao(contadorCampos, "6");
+    }//GEN-LAST:event_btn6ActionPerformed
+
+    private void btn7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn7ActionPerformed
+        clicaBotao(contadorCampos, "7");
+    }//GEN-LAST:event_btn7ActionPerformed
+
+    private void btn8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn8ActionPerformed
+        clicaBotao(contadorCampos, "8");
+    }//GEN-LAST:event_btn8ActionPerformed
+
+    private void btn9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn9ActionPerformed
+        clicaBotao(contadorCampos, "9");
+    }//GEN-LAST:event_btn9ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn1;
