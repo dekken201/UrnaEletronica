@@ -29,14 +29,6 @@ public class Partido {
         return numero;
     }
 
-    public int getVotosPartido() {
-        return votosPartido;
-    }
-
-    public void adicionaVotoPartido() {
-        votosPartido++;
-    }
-
     public ArrayList<Candidato> getCandidatos() {
         return candidatos;
     }

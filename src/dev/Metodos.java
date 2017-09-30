@@ -23,9 +23,7 @@ public class Metodos {
     }
 
 
-    public int votar(String voto, Partido[] partidos) {
-        //CÓDIGO RETURNS:
-        //1 - voto em candidato ok ; 2 - não encontrou partido ; 3 - não encontrou o candidato;
+    public boolean votar(String voto, Partido[] partidos) {
         String numPartido = voto.substring(0, 2);
         Partido partidoVotado = new Partido();
         ArrayList<Candidato> candidatos = new ArrayList<>();
@@ -33,22 +31,20 @@ public class Metodos {
         for (int i = 0; i <= (partidos.length)-1; i++) {
             if (partidos[i].getNumero().equals(numPartido)) {
                 partidoVotado = partidos[i];
-                partidoVotado.adicionaVotoPartido();
                 candidatos = partidoVotado.getCandidatos();
                 break;
             }
             else{
-                return 2;
-                
+                return false;                
             }
         }
         for (int i = 0; i <= (candidatos.size())-1;i++){
             if (candidatos.get(i).getNumero().equals(voto)){
                 candidatos.get(i).adicionaVoto();
-                return 1;
+                return true;
             }
         }
-        return 3;        
+        return false;        
     }
     
     
