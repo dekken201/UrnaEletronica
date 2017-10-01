@@ -13,6 +13,6 @@ public class Testes {
             frame.getContentPane().add(gui);
             frame.pack();
             frame.setVisible(true);
-        });
+        });        
     }
 }

@@ -6,9 +6,14 @@ import javax.swing.*;
 public class InterfaceUrna extends javax.swing.JPanel {
 
     int contadorCampos = 0;
+    int totalVotos = 0;
+    int votosBranco = 0;
+    int votosNulo = 0;
+    
+    
     JLabel[] campos = new JLabel[5];
-    StringBuilder voto = new StringBuilder();
-
+    StringBuilder voto = new StringBuilder();     
+    
     Metodos metodos = new Metodos();
     Partido[] partidos = new Metodos().criaPartidos();
 
@@ -19,7 +24,7 @@ public class InterfaceUrna extends javax.swing.JPanel {
         campos[2] = lblCampo2;
         campos[3] = lblCampo3;
         campos[4] = lblCampo4;
-
+        zeraCampos();
     }
 
     public void clicaBotao(int contador, String nBotao) {
@@ -44,57 +49,88 @@ public class InterfaceUrna extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        btn1 = new javax.swing.JButton();
-        btn2 = new javax.swing.JButton();
-        btn3 = new javax.swing.JButton();
-        btn4 = new javax.swing.JButton();
-        btn5 = new javax.swing.JButton();
-        btn6 = new javax.swing.JButton();
-        btn7 = new javax.swing.JButton();
-        btn8 = new javax.swing.JButton();
-        btn9 = new javax.swing.JButton();
-        btnBranco = new javax.swing.JButton();
-        btnCorrige = new javax.swing.JButton();
-        btnConfirma = new javax.swing.JButton();
-        jPanel1 = new javax.swing.JPanel();
+        pnlCampos = new javax.swing.JPanel();
         lblCampo0 = new javax.swing.JLabel();
         lblCampo1 = new javax.swing.JLabel();
         lblCampo2 = new javax.swing.JLabel();
         lblCampo3 = new javax.swing.JLabel();
         lblCampo4 = new javax.swing.JLabel();
+        pnlLegenda = new javax.swing.JPanel();
+        pnlBotoes = new javax.swing.JPanel();
+        btnCorrige = new javax.swing.JButton();
+        btn6 = new javax.swing.JButton();
+        btn7 = new javax.swing.JButton();
+        btn4 = new javax.swing.JButton();
+        btn9 = new javax.swing.JButton();
+        btn3 = new javax.swing.JButton();
+        btnConfirma = new javax.swing.JButton();
+        btnBranco = new javax.swing.JButton();
+        btn5 = new javax.swing.JButton();
+        btn1 = new javax.swing.JButton();
+        btn2 = new javax.swing.JButton();
+        btn8 = new javax.swing.JButton();
 
-        btn1.setText("1");
-        btn1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn1ActionPerformed(evt);
-            }
-        });
+        lblCampo0.setText("campo1");
 
-        btn2.setText("2");
-        btn2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn2ActionPerformed(evt);
-            }
-        });
+        lblCampo1.setText("campo2");
 
-        btn3.setText("3");
-        btn3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn3ActionPerformed(evt);
-            }
-        });
+        lblCampo2.setText("campo3");
 
-        btn4.setText("4");
-        btn4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn4ActionPerformed(evt);
-            }
-        });
+        lblCampo3.setText("campo4");
 
-        btn5.setText("5");
-        btn5.addActionListener(new java.awt.event.ActionListener() {
+        lblCampo4.setText("campo5");
+
+        javax.swing.GroupLayout pnlLegendaLayout = new javax.swing.GroupLayout(pnlLegenda);
+        pnlLegenda.setLayout(pnlLegendaLayout);
+        pnlLegendaLayout.setHorizontalGroup(
+            pnlLegendaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        pnlLegendaLayout.setVerticalGroup(
+            pnlLegendaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout pnlCamposLayout = new javax.swing.GroupLayout(pnlCampos);
+        pnlCampos.setLayout(pnlCamposLayout);
+        pnlCamposLayout.setHorizontalGroup(
+            pnlCamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlCamposLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pnlCamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlCamposLayout.createSequentialGroup()
+                        .addComponent(lblCampo0)
+                        .addGap(18, 18, 18)
+                        .addComponent(lblCampo1)
+                        .addGap(18, 18, 18)
+                        .addComponent(lblCampo2)
+                        .addGap(18, 18, 18)
+                        .addComponent(lblCampo3)
+                        .addGap(18, 18, 18)
+                        .addComponent(lblCampo4)
+                        .addGap(0, 130, Short.MAX_VALUE))
+                    .addComponent(pnlLegenda, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+        pnlCamposLayout.setVerticalGroup(
+            pnlCamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlCamposLayout.createSequentialGroup()
+                .addGap(37, 37, 37)
+                .addGroup(pnlCamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblCampo0)
+                    .addComponent(lblCampo1)
+                    .addComponent(lblCampo2)
+                    .addComponent(lblCampo3)
+                    .addComponent(lblCampo4))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(pnlLegenda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+        btnCorrige.setText("corrige");
+        btnCorrige.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn5ActionPerformed(evt);
+                btnCorrigeActionPerformed(evt);
             }
         });
 
@@ -112,10 +148,10 @@ public class InterfaceUrna extends javax.swing.JPanel {
             }
         });
 
-        btn8.setText("8");
-        btn8.addActionListener(new java.awt.event.ActionListener() {
+        btn4.setText("4");
+        btn4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn8ActionPerformed(evt);
+                btn4ActionPerformed(evt);
             }
         });
 
@@ -126,9 +162,12 @@ public class InterfaceUrna extends javax.swing.JPanel {
             }
         });
 
-        btnBranco.setText("branco");
-
-        btnCorrige.setText("corrige");
+        btn3.setText("3");
+        btn3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn3ActionPerformed(evt);
+            }
+        });
 
         btnConfirma.setText("confirma");
         btnConfirma.addActionListener(new java.awt.event.ActionListener() {
@@ -137,149 +176,149 @@ public class InterfaceUrna extends javax.swing.JPanel {
             }
         });
 
-        lblCampo0.setText("campo1");
+        btnBranco.setText("branco");
+        btnBranco.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBrancoActionPerformed(evt);
+            }
+        });
 
-        lblCampo1.setText("campo2");
+        btn5.setText("5");
+        btn5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn5ActionPerformed(evt);
+            }
+        });
 
-        lblCampo2.setText("campo3");
+        btn1.setText("1");
+        btn1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn1ActionPerformed(evt);
+            }
+        });
 
-        lblCampo3.setText("campo4");
+        btn2.setText("2");
+        btn2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn2ActionPerformed(evt);
+            }
+        });
 
-        lblCampo4.setText("campo5");
+        btn8.setText("8");
+        btn8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn8ActionPerformed(evt);
+            }
+        });
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(lblCampo0)
+        javax.swing.GroupLayout pnlBotoesLayout = new javax.swing.GroupLayout(pnlBotoes);
+        pnlBotoes.setLayout(pnlBotoesLayout);
+        pnlBotoesLayout.setHorizontalGroup(
+            pnlBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlBotoesLayout.createSequentialGroup()
+                .addGap(66, 66, 66)
+                .addGroup(pnlBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlBotoesLayout.createSequentialGroup()
+                        .addComponent(btn4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btn5)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btn6))
+                    .addGroup(pnlBotoesLayout.createSequentialGroup()
+                        .addComponent(btn1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btn2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btn3))
+                    .addGroup(pnlBotoesLayout.createSequentialGroup()
+                        .addComponent(btn7)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btn8)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btn9)))
+                .addGap(40, 44, Short.MAX_VALUE))
+            .addGroup(pnlBotoesLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btnBranco)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnCorrige)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblCampo1)
-                .addGap(18, 18, 18)
-                .addComponent(lblCampo2)
-                .addGap(18, 18, 18)
-                .addComponent(lblCampo3)
-                .addGap(27, 27, 27)
-                .addComponent(lblCampo4)
-                .addGap(0, 153, Short.MAX_VALUE))
+                .addComponent(btnConfirma)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblCampo0)
-                    .addComponent(lblCampo1)
-                    .addComponent(lblCampo2)
-                    .addComponent(lblCampo3)
-                    .addComponent(lblCampo4))
-                .addContainerGap(353, Short.MAX_VALUE))
+        pnlBotoesLayout.setVerticalGroup(
+            pnlBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlBotoesLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pnlBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btn1)
+                    .addComponent(btn2)
+                    .addComponent(btn3))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(pnlBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btn4)
+                    .addComponent(btn5)
+                    .addComponent(btn6))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(pnlBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btn7)
+                    .addComponent(btn8)
+                    .addComponent(btn9))
+                .addGap(88, 88, 88)
+                .addGroup(pnlBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnBranco)
+                    .addComponent(btnConfirma)
+                    .addComponent(btnCorrige))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(44, 44, 44)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(btnBranco)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnCorrige)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnConfirma)
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(btn7)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btn8)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btn9))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(btn4)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btn5)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btn6))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(btn1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btn2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btn3)))
-                        .addGap(50, 50, 50))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(2, 2, 2)
+                .addComponent(pnlCampos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(pnlBotoes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(83, 83, 83)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btn1)
-                    .addComponent(btn2)
-                    .addComponent(btn3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btn4)
-                    .addComponent(btn5)
-                    .addComponent(btn6))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btn7)
-                    .addComponent(btn8)
-                    .addComponent(btn9))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnBranco)
-                    .addComponent(btnCorrige)
-                    .addComponent(btnConfirma))
-                .addGap(125, 125, 125))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(61, 61, 61)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(36, Short.MAX_VALUE))
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(pnlCampos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(0, 82, Short.MAX_VALUE)
+                        .addComponent(pnlBotoes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn1ActionPerformed
-        clicaBotao(contadorCampos, "1");
-    }//GEN-LAST:event_btn1ActionPerformed
-
-    private void btn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn2ActionPerformed
-        clicaBotao(contadorCampos, "2");
-    }//GEN-LAST:event_btn2ActionPerformed
-
-    private void btn3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn3ActionPerformed
-        clicaBotao(contadorCampos, "3");
-    }//GEN-LAST:event_btn3ActionPerformed
-
-    private void btn4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn4ActionPerformed
-        clicaBotao(contadorCampos, "4");
-    }//GEN-LAST:event_btn4ActionPerformed
-
-    private void btn5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn5ActionPerformed
-        clicaBotao(contadorCampos, "5");
-    }//GEN-LAST:event_btn5ActionPerformed
-
-    private void btn6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn6ActionPerformed
-        clicaBotao(contadorCampos, "6");
-    }//GEN-LAST:event_btn6ActionPerformed
-
-    private void btn7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn7ActionPerformed
-        clicaBotao(contadorCampos, "7");
-    }//GEN-LAST:event_btn7ActionPerformed
 
     private void btn8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn8ActionPerformed
         clicaBotao(contadorCampos, "8");
     }//GEN-LAST:event_btn8ActionPerformed
 
-    private void btn9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn9ActionPerformed
-        clicaBotao(contadorCampos, "9");
-    }//GEN-LAST:event_btn9ActionPerformed
+    private void btn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn2ActionPerformed
+        clicaBotao(contadorCampos, "2");
+    }//GEN-LAST:event_btn2ActionPerformed
+
+    private void btn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn1ActionPerformed
+        clicaBotao(contadorCampos, "1");
+    }//GEN-LAST:event_btn1ActionPerformed
+
+    private void btn5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn5ActionPerformed
+        clicaBotao(contadorCampos, "5");
+    }//GEN-LAST:event_btn5ActionPerformed
+
+    private void btnBrancoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBrancoActionPerformed
+        int input = JOptionPane.showConfirmDialog(null, "Deseja mesmo votar em branco?");
+        if (input == 0) {
+            votosBranco++;
+            totalVotos++;
+        }        
+    }//GEN-LAST:event_btnBrancoActionPerformed
 
     private void btnConfirmaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmaActionPerformed
         for (int i = 0; i <= 4; i++) {
@@ -289,11 +328,43 @@ public class InterfaceUrna extends javax.swing.JPanel {
         if (metodos.votar(voto, partidos) == true) {
             JOptionPane.showMessageDialog(null, "Voto confirmado!");
             zeraCampos();
+            totalVotos++;
         } else {
-            JOptionPane.showMessageDialog(null, "Voto NÃO confirmado!");
+            int input = JOptionPane.showConfirmDialog(null, "Voto Inválido! Deseja votar NULO?");
+            if (input == 0){
+                votosNulo++;
+                totalVotos++;
+            }
+            else if ((input == 1) || (input == 2)){
+                zeraCampos();
+            }
             zeraCampos();
         }
     }//GEN-LAST:event_btnConfirmaActionPerformed
+
+    private void btn3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn3ActionPerformed
+        clicaBotao(contadorCampos, "3");
+    }//GEN-LAST:event_btn3ActionPerformed
+
+    private void btn9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn9ActionPerformed
+        clicaBotao(contadorCampos, "9");
+    }//GEN-LAST:event_btn9ActionPerformed
+
+    private void btn4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn4ActionPerformed
+        clicaBotao(contadorCampos, "4");
+    }//GEN-LAST:event_btn4ActionPerformed
+
+    private void btn7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn7ActionPerformed
+        clicaBotao(contadorCampos, "7");
+    }//GEN-LAST:event_btn7ActionPerformed
+
+    private void btn6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn6ActionPerformed
+        clicaBotao(contadorCampos, "6");
+    }//GEN-LAST:event_btn6ActionPerformed
+
+    private void btnCorrigeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCorrigeActionPerformed
+        zeraCampos();
+    }//GEN-LAST:event_btnCorrigeActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -309,12 +380,14 @@ public class InterfaceUrna extends javax.swing.JPanel {
     private javax.swing.JButton btnBranco;
     private javax.swing.JButton btnConfirma;
     private javax.swing.JButton btnCorrige;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblCampo0;
     private javax.swing.JLabel lblCampo1;
     private javax.swing.JLabel lblCampo2;
     private javax.swing.JLabel lblCampo3;
     private javax.swing.JLabel lblCampo4;
+    private javax.swing.JPanel pnlBotoes;
+    private javax.swing.JPanel pnlCampos;
+    private javax.swing.JPanel pnlLegenda;
     // End of variables declaration//GEN-END:variables
 
 }

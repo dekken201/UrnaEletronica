@@ -42,4 +42,13 @@ public class Metodos {
         }
         return false;
     }
+
+    public void mostraVotos(Partido[] partidos) {
+        System.out.println(partidos[0].getCandidatos().get(0).getNumVotos());
+        System.out.println(partidos[1].getCandidatos().get(0).getNumVotos());
+        System.out.println(partidos[2].getCandidatos().get(0).getNumVotos());
+        System.out.println(partidos[3].getCandidatos().get(0).getNumVotos());
+
+    }
+
 }
