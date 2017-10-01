@@ -1,21 +1,16 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package UI;
 
-import javax.swing.JLabel;
+import dev.*;
+import javax.swing.*;
 
-/**
- *
- * @author Luke
- */
 public class InterfaceUrna extends javax.swing.JPanel {
 
     int contadorCampos = 0;
     JLabel[] campos = new JLabel[5];
     StringBuilder voto = new StringBuilder();
+
+    Metodos metodos = new Metodos();
+    Partido[] partidos = new Metodos().criaPartidos();
 
     public InterfaceUrna() {
         initComponents();
@@ -30,6 +25,14 @@ public class InterfaceUrna extends javax.swing.JPanel {
     public void clicaBotao(int contador, String nBotao) {
         campos[contador].setText(nBotao);
         contadorCampos++;
+    }
+
+    public void zeraCampos() {
+        for (int i = 0; i <= 4; i++) {
+            campos[i].setText("");
+            contadorCampos = 0;
+            voto = new StringBuilder();
+        }
     }
 
     /**
@@ -53,6 +56,7 @@ public class InterfaceUrna extends javax.swing.JPanel {
         btnBranco = new javax.swing.JButton();
         btnCorrige = new javax.swing.JButton();
         btnConfirma = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
         lblCampo0 = new javax.swing.JLabel();
         lblCampo1 = new javax.swing.JLabel();
         lblCampo2 = new javax.swing.JLabel();
@@ -127,6 +131,11 @@ public class InterfaceUrna extends javax.swing.JPanel {
         btnCorrige.setText("corrige");
 
         btnConfirma.setText("confirma");
+        btnConfirma.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConfirmaActionPerformed(evt);
+            }
+        });
 
         lblCampo0.setText("campo1");
 
@@ -138,50 +147,72 @@ public class InterfaceUrna extends javax.swing.JPanel {
 
         lblCampo4.setText("campo5");
 
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(lblCampo0)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblCampo1)
+                .addGap(18, 18, 18)
+                .addComponent(lblCampo2)
+                .addGap(18, 18, 18)
+                .addComponent(lblCampo3)
+                .addGap(27, 27, 27)
+                .addComponent(lblCampo4)
+                .addGap(0, 153, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblCampo0)
+                    .addComponent(lblCampo1)
+                    .addComponent(lblCampo2)
+                    .addComponent(lblCampo3)
+                    .addComponent(lblCampo4))
+                .addContainerGap(353, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnBranco)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnCorrige)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnConfirma)
-                .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(92, 92, 92)
-                .addComponent(lblCampo0)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(lblCampo1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(lblCampo2)
-                .addGap(18, 18, 18)
-                .addComponent(lblCampo3)
-                .addGap(18, 18, 18)
-                .addComponent(lblCampo4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 203, Short.MAX_VALUE)
+                .addGap(44, 44, 44)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(btn7)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(btnBranco)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btn8)
+                        .addComponent(btnCorrige)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btn9))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(btn4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btn5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btn6))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(btn1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btn2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btn3)))
-                .addGap(50, 50, 50))
+                        .addComponent(btnConfirma)
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btn7)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btn8)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btn9))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btn4)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btn5)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btn6))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btn1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btn2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btn3)))
+                        .addGap(50, 50, 50))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -196,27 +227,21 @@ public class InterfaceUrna extends javax.swing.JPanel {
                     .addComponent(btn4)
                     .addComponent(btn5)
                     .addComponent(btn6))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btn7)
-                            .addComponent(btn8)
-                            .addComponent(btn9)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(28, 28, 28)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblCampo0)
-                            .addComponent(lblCampo1)
-                            .addComponent(lblCampo2)
-                            .addComponent(lblCampo3)
-                            .addComponent(lblCampo4))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 157, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btn7)
+                    .addComponent(btn8)
+                    .addComponent(btn9))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnBranco)
                     .addComponent(btnCorrige)
                     .addComponent(btnConfirma))
                 .addGap(125, 125, 125))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(61, 61, 61)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(36, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -256,6 +281,20 @@ public class InterfaceUrna extends javax.swing.JPanel {
         clicaBotao(contadorCampos, "9");
     }//GEN-LAST:event_btn9ActionPerformed
 
+    private void btnConfirmaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmaActionPerformed
+        for (int i = 0; i <= 4; i++) {
+            voto.append(campos[i].getText());
+        }
+
+        if (metodos.votar(voto, partidos) == true) {
+            JOptionPane.showMessageDialog(null, "Voto confirmado!");
+            zeraCampos();
+        } else {
+            JOptionPane.showMessageDialog(null, "Voto NÃO confirmado!");
+            zeraCampos();
+        }
+    }//GEN-LAST:event_btnConfirmaActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn1;
@@ -270,6 +309,7 @@ public class InterfaceUrna extends javax.swing.JPanel {
     private javax.swing.JButton btnBranco;
     private javax.swing.JButton btnConfirma;
     private javax.swing.JButton btnCorrige;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblCampo0;
     private javax.swing.JLabel lblCampo1;
     private javax.swing.JLabel lblCampo2;
