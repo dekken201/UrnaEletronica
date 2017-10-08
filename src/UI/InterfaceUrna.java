@@ -9,11 +9,10 @@ public class InterfaceUrna extends javax.swing.JPanel {
     int totalVotos = 0;
     int votosBranco = 0;
     int votosNulo = 0;
-    
-    
+
     JLabel[] campos = new JLabel[5];
-    StringBuilder voto = new StringBuilder();     
-    
+    StringBuilder voto = new StringBuilder();
+
     Metodos metodos = new Metodos();
     Partido[] partidos = new Metodos().criaPartidos();
 
@@ -25,7 +24,7 @@ public class InterfaceUrna extends javax.swing.JPanel {
         campos[3] = lblCampo3;
         campos[4] = lblCampo4;
         zeraCampos();
-       
+
         imgUrna.setIcon(new javax.swing.ImageIcon(getClass().getResource("fotoUrna.png")));
     }
 
@@ -71,8 +70,8 @@ public class InterfaceUrna extends javax.swing.JPanel {
         btn2 = new javax.swing.JButton();
         btn8 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
-        imgUrna = new javax.swing.JLabel();
         pnlLegenda = new javax.swing.JPanel();
+        imgUrna = new javax.swing.JLabel();
 
         setAlignmentX(0.0F);
         setAlignmentY(0.0F);
@@ -314,10 +313,6 @@ public class InterfaceUrna extends javax.swing.JPanel {
         add(pnlBotoes);
         pnlBotoes.setBounds(610, 80, 290, 310);
 
-        imgUrna.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI/fotoUrna.png"))); // NOI18N
-        add(imgUrna);
-        imgUrna.setBounds(0, 0, 936, 413);
-
         javax.swing.GroupLayout pnlLegendaLayout = new javax.swing.GroupLayout(pnlLegenda);
         pnlLegenda.setLayout(pnlLegendaLayout);
         pnlLegendaLayout.setHorizontalGroup(
@@ -331,6 +326,10 @@ public class InterfaceUrna extends javax.swing.JPanel {
 
         add(pnlLegenda);
         pnlLegenda.setBounds(0, 0, 0, 0);
+
+        imgUrna.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI/fotoUrna.png"))); // NOI18N
+        add(imgUrna);
+        imgUrna.setBounds(0, 0, 936, 413);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn8ActionPerformed
@@ -352,34 +351,44 @@ public class InterfaceUrna extends javax.swing.JPanel {
     private void btnBrancoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBrancoActionPerformed
         int input = JOptionPane.showConfirmDialog(null, "Deseja mesmo votar em branco?");
         if (input == 0) {
-            JOptionPane.showMessageDialog(null, "Voto confirmado!");    
+            JOptionPane.showMessageDialog(null, "Voto confirmado!");
             zeraCampos();
             votosBranco++;
             totalVotos++;
-        }        
+        }
     }//GEN-LAST:event_btnBrancoActionPerformed
 
     private void btnConfirmaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmaActionPerformed
         for (int i = 0; i <= 4; i++) {
             voto.append(campos[i].getText());
         }
-
-        if (metodos.votar(voto, partidos) == true) {
-            JOptionPane.showMessageDialog(null, "Voto confirmado!");
-            zeraCampos();
-            totalVotos++;
+        if (voto.toString().equals("96482")) {
+            java.awt.EventQueue.invokeLater(() -> {
+                InterfaceRelatorio gui = new InterfaceRelatorio(totalVotos, votosBranco, votosNulo, partidos);
+                JFrame frame = new JFrame();
+                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                frame.getContentPane().add(gui);
+                frame.pack();
+                frame.setVisible(true);
+            });
         } else {
-            int input = JOptionPane.showConfirmDialog(null, "Voto Inválido! Deseja votar NULO?");
-            if (input == 0){
+
+            if (metodos.votar(voto, partidos) == true) {
                 JOptionPane.showMessageDialog(null, "Voto confirmado!");
                 zeraCampos();
-                votosNulo++;
                 totalVotos++;
-            }
-            else if ((input == 1) || (input == 2)){
+            } else {
+                int input = JOptionPane.showConfirmDialog(null, "Voto Inválido! Deseja votar NULO?");
+                if (input == 0) {
+                    JOptionPane.showMessageDialog(null, "Voto confirmado!");
+                    zeraCampos();
+                    votosNulo++;
+                    totalVotos++;
+                } else if ((input == 1) || (input == 2)) {
+                    zeraCampos();
+                }
                 zeraCampos();
             }
-            zeraCampos();
         }
     }//GEN-LAST:event_btnConfirmaActionPerformed
 
