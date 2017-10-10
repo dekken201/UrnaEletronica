@@ -22,7 +22,7 @@ public class InterfaceUrna extends javax.swing.JPanel {
         campos[1] = lblCampo1;
         campos[2] = lblCampo2;
         campos[3] = lblCampo3;
-        campos[4] = lblCampo4;
+        campos[4] = lblCampo4;        
         zeraCampos();
 
         imgUrna.setIcon(new javax.swing.ImageIcon(getClass().getResource("fotoUrna.png")));
@@ -38,6 +38,7 @@ public class InterfaceUrna extends javax.swing.JPanel {
             campos[i].setText("");
             contadorCampos = 0;
             voto = new StringBuilder();
+            lblNome.setVisible(false);
         }
     }
 
@@ -69,7 +70,8 @@ public class InterfaceUrna extends javax.swing.JPanel {
         btn1 = new javax.swing.JButton();
         btn2 = new javax.swing.JButton();
         btn8 = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        btn0 = new javax.swing.JButton();
+        lblNome = new javax.swing.JLabel();
         pnlLegenda = new javax.swing.JPanel();
         imgUrna = new javax.swing.JLabel();
 
@@ -140,94 +142,108 @@ public class InterfaceUrna extends javax.swing.JPanel {
 
         pnlBotoes.setOpaque(false);
 
-        btnCorrige.setText("corrige");
+        btnCorrige.setBorderPainted(false);
+        btnCorrige.setContentAreaFilled(false);
         btnCorrige.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCorrigeActionPerformed(evt);
             }
         });
 
-        btn6.setText("6");
+        btn6.setBorderPainted(false);
+        btn6.setContentAreaFilled(false);
         btn6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn6ActionPerformed(evt);
             }
         });
 
-        btn7.setText("7");
+        btn7.setBorderPainted(false);
+        btn7.setContentAreaFilled(false);
         btn7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn7ActionPerformed(evt);
             }
         });
 
-        btn4.setText("4");
+        btn4.setBorderPainted(false);
+        btn4.setContentAreaFilled(false);
         btn4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn4ActionPerformed(evt);
             }
         });
 
-        btn9.setText("9");
+        btn9.setBorderPainted(false);
+        btn9.setContentAreaFilled(false);
         btn9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn9ActionPerformed(evt);
             }
         });
 
-        btn3.setText("3");
+        btn3.setBorderPainted(false);
+        btn3.setContentAreaFilled(false);
         btn3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn3ActionPerformed(evt);
             }
         });
 
-        btnConfirma.setText("confirma");
+        btnConfirma.setBorderPainted(false);
+        btnConfirma.setContentAreaFilled(false);
         btnConfirma.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnConfirmaActionPerformed(evt);
             }
         });
 
-        btnBranco.setText("branco");
+        btnBranco.setBorderPainted(false);
+        btnBranco.setContentAreaFilled(false);
+        btnBranco.setOpaque(false);
         btnBranco.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBrancoActionPerformed(evt);
             }
         });
 
-        btn5.setText("5");
+        btn5.setBorderPainted(false);
+        btn5.setContentAreaFilled(false);
         btn5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn5ActionPerformed(evt);
             }
         });
 
-        btn1.setText("1");
+        btn1.setBorderPainted(false);
+        btn1.setContentAreaFilled(false);
         btn1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn1ActionPerformed(evt);
             }
         });
 
-        btn2.setText("2");
+        btn2.setBorderPainted(false);
+        btn2.setContentAreaFilled(false);
         btn2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn2ActionPerformed(evt);
             }
         });
 
-        btn8.setText("8");
+        btn8.setBorderPainted(false);
+        btn8.setContentAreaFilled(false);
         btn8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn8ActionPerformed(evt);
             }
         });
 
-        jButton1.setText("0");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btn0.setBorderPainted(false);
+        btn0.setContentAreaFilled(false);
+        btn0.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btn0ActionPerformed(evt);
             }
         });
 
@@ -260,7 +276,7 @@ public class InterfaceUrna extends javax.swing.JPanel {
                         .addGap(108, 108, 108)
                         .addGroup(pnlBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btn8, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton1)
+                            .addComponent(btn0)
                             .addComponent(btn5, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGroup(pnlBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlBotoesLayout.createSequentialGroup()
@@ -272,7 +288,7 @@ public class InterfaceUrna extends javax.swing.JPanel {
                 .addGap(83, 83, 83))
         );
 
-        pnlBotoesLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btn9, jButton1});
+        pnlBotoesLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btn0, btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btn9});
 
         pnlBotoesLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnBranco, btnCorrige});
 
@@ -296,7 +312,7 @@ public class InterfaceUrna extends javax.swing.JPanel {
                     .addComponent(btn8, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn7))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton1)
+                .addComponent(btn0)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
                 .addGroup(pnlBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -306,12 +322,16 @@ public class InterfaceUrna extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
-        pnlBotoesLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btn9, jButton1});
+        pnlBotoesLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btn0, btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btn9});
 
         pnlBotoesLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnBranco, btnCorrige});
 
         add(pnlBotoes);
         pnlBotoes.setBounds(610, 80, 290, 310);
+
+        lblNome.setText("jLabel2");
+        add(lblNome);
+        lblNome.setBounds(80, 60, 34, 14);
 
         javax.swing.GroupLayout pnlLegendaLayout = new javax.swing.GroupLayout(pnlLegenda);
         pnlLegenda.setLayout(pnlLegendaLayout);
@@ -416,12 +436,13 @@ public class InterfaceUrna extends javax.swing.JPanel {
         zeraCampos();
     }//GEN-LAST:event_btnCorrigeActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btn0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn0ActionPerformed
         clicaBotao(contadorCampos, "0");
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btn0ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn0;
     private javax.swing.JButton btn1;
     private javax.swing.JButton btn2;
     private javax.swing.JButton btn3;
@@ -435,12 +456,12 @@ public class InterfaceUrna extends javax.swing.JPanel {
     private javax.swing.JButton btnConfirma;
     private javax.swing.JButton btnCorrige;
     private javax.swing.JLabel imgUrna;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel lblCampo0;
     private javax.swing.JLabel lblCampo1;
     private javax.swing.JLabel lblCampo2;
     private javax.swing.JLabel lblCampo3;
     private javax.swing.JLabel lblCampo4;
+    private javax.swing.JLabel lblNome;
     private javax.swing.JPanel pnlBotoes;
     private javax.swing.JPanel pnlCampos;
     private javax.swing.JPanel pnlLegenda;

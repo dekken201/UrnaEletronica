@@ -41,7 +41,7 @@ public InterfaceRelatorio(int totalVotos, int votosBranco, int votosNulo, Partid
             }
             sb.append("\n");
         }
-        sb.append("\n Nulos: "+votosNulo+"\n Brancos: "+votosBranco+"\n TOTAL VOTOS: "+totalVotos);
+        sb.append("\n Nulos: "+votosNulo+"\n Brancos: "+votosBranco+"\n\n TOTAL VOTOS: "+totalVotos);
         txtRelatorio.setText(sb.toString());
     }
 
