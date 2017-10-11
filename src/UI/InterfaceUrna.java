@@ -22,7 +22,7 @@ public class InterfaceUrna extends javax.swing.JPanel {
         campos[1] = lblCampo1;
         campos[2] = lblCampo2;
         campos[3] = lblCampo3;
-        campos[4] = lblCampo4;        
+        campos[4] = lblCampo4;
         zeraCampos();
 
         imgUrna.setIcon(new javax.swing.ImageIcon(getClass().getResource("fotoUrna.png")));
@@ -31,6 +31,7 @@ public class InterfaceUrna extends javax.swing.JPanel {
     public void clicaBotao(int contador, String nBotao) {
         campos[contador].setText(nBotao);
         contadorCampos++;
+        mostraDados(contadorCampos, partidos);
     }
 
     public void zeraCampos() {
@@ -38,8 +39,46 @@ public class InterfaceUrna extends javax.swing.JPanel {
             campos[i].setText("");
             contadorCampos = 0;
             voto = new StringBuilder();
+            lblPartido.setText("");
+            lblPartido.setVisible(false);
+            lblNome.setText("");
             lblNome.setVisible(false);
         }
+    }
+
+    public void mostraDados(int contador, Partido[] partidos) {
+        Partido partido;
+        StringBuilder votoTemp;
+        Candidato candidato;
+        if (contador == 2 || contador == 5) {
+            votoTemp = contaVoto(campos);
+            for (int i = 0; i < 4; i++) {
+                if (partidos[i].getNumero().equals(votoTemp.toString())) {
+                    partido = partidos[i];
+                    lblPartido.setText(partido.getNome());
+                    lblPartido.setVisible(true);
+                }
+            }
+        }
+            votoTemp = contaVoto(campos);
+            for (int i = 0; i < partido.getCandidatos().size(); i++) {
+                if (partido.getCandidatos().get(i).getNumero().equals(votoTemp.toString())){
+                    candidato = partido.getCandidatos().get(i);
+                    System.out.println(candidato.getNome());
+                           
+                    lblNome.setText(candidato.getNome());
+                    lblNome.setVisible(true);
+                }
+            }
+            
+        }
+    }
+    
+    public StringBuilder contaVoto(JLabel[] campos){
+        for (JLabel campo : campos) {
+            voto.append(campo.getText());
+        }
+        return voto;
     }
 
     /**
@@ -71,8 +110,9 @@ public class InterfaceUrna extends javax.swing.JPanel {
         btn2 = new javax.swing.JButton();
         btn8 = new javax.swing.JButton();
         btn0 = new javax.swing.JButton();
-        lblNome = new javax.swing.JLabel();
         pnlLegenda = new javax.swing.JPanel();
+        lblPartido = new javax.swing.JLabel();
+        lblNome = new javax.swing.JLabel();
         imgUrna = new javax.swing.JLabel();
 
         setAlignmentX(0.0F);
@@ -200,7 +240,6 @@ public class InterfaceUrna extends javax.swing.JPanel {
 
         btnBranco.setBorderPainted(false);
         btnBranco.setContentAreaFilled(false);
-        btnBranco.setOpaque(false);
         btnBranco.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBrancoActionPerformed(evt);
@@ -329,10 +368,6 @@ public class InterfaceUrna extends javax.swing.JPanel {
         add(pnlBotoes);
         pnlBotoes.setBounds(610, 80, 290, 310);
 
-        lblNome.setText("jLabel2");
-        add(lblNome);
-        lblNome.setBounds(80, 60, 34, 14);
-
         javax.swing.GroupLayout pnlLegendaLayout = new javax.swing.GroupLayout(pnlLegenda);
         pnlLegenda.setLayout(pnlLegendaLayout);
         pnlLegendaLayout.setHorizontalGroup(
@@ -346,6 +381,14 @@ public class InterfaceUrna extends javax.swing.JPanel {
 
         add(pnlLegenda);
         pnlLegenda.setBounds(0, 0, 0, 0);
+
+        lblPartido.setMaximumSize(new java.awt.Dimension(20, 20));
+        lblPartido.setMinimumSize(new java.awt.Dimension(20, 20));
+        lblPartido.setPreferredSize(new java.awt.Dimension(20, 20));
+        add(lblPartido);
+        lblPartido.setBounds(70, 60, 120, 30);
+        add(lblNome);
+        lblNome.setBounds(70, 100, 210, 30);
 
         imgUrna.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI/fotoUrna.png"))); // NOI18N
         add(imgUrna);
@@ -462,6 +505,7 @@ public class InterfaceUrna extends javax.swing.JPanel {
     private javax.swing.JLabel lblCampo3;
     private javax.swing.JLabel lblCampo4;
     private javax.swing.JLabel lblNome;
+    private javax.swing.JLabel lblPartido;
     private javax.swing.JPanel pnlBotoes;
     private javax.swing.JPanel pnlCampos;
     private javax.swing.JPanel pnlLegenda;
