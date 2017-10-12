@@ -3,7 +3,7 @@ package dev;
 import UI.InterfaceUrna;
 import javax.swing.*;
 
-public class Testes {
+public class Main {
 
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
