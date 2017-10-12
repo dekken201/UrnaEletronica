@@ -1,7 +1,8 @@
 package UI;
 
 import dev.*;
-import javax.swing.*;
+import java.util.ArrayList;
+import javax.swing.JLabel; import javax.swing.JOptionPane; import javax.swing.JFrame;
 
 public class InterfaceUrna extends javax.swing.JPanel {
 
@@ -12,6 +13,7 @@ public class InterfaceUrna extends javax.swing.JPanel {
 
     JLabel[] campos = new JLabel[5];
     StringBuilder voto = new StringBuilder();
+    StringBuilder votoTemp = new StringBuilder();
 
     Metodos metodos = new Metodos();
     Partido[] partidos = new Metodos().criaPartidos();
@@ -46,39 +48,47 @@ public class InterfaceUrna extends javax.swing.JPanel {
         }
     }
 
-    public void mostraDados(int contador, Partido[] partidos) {
-        Partido partido;
-        StringBuilder votoTemp;
-        Candidato candidato;
-        if (contador == 2 || contador == 5) {
-            votoTemp = contaVoto(campos);
-            for (int i = 0; i < 4; i++) {
-                if (partidos[i].getNumero().equals(votoTemp.toString())) {
-                    partido = partidos[i];
-                    lblPartido.setText(partido.getNome());
-                    lblPartido.setVisible(true);
-                }
-            }
+    public StringBuilder contaVoto(JLabel[] campos) {
+        StringBuilder votoTemp = new StringBuilder();
+        for (JLabel campo : campos) {
+            votoTemp.append(campo.getText());
         }
-            votoTemp = contaVoto(campos);
-            for (int i = 0; i < partido.getCandidatos().size(); i++) {
-                if (partido.getCandidatos().get(i).getNumero().equals(votoTemp.toString())){
-                    candidato = partido.getCandidatos().get(i);
-                    System.out.println(candidato.getNome());
-                           
-                    lblNome.setText(candidato.getNome());
-                    lblNome.setVisible(true);
-                }
-            }
-            
+        return votoTemp;
+    }
+
+    public void mostraDados(int contador, Partido[] partidos) {        
+        if (contador == 2) {            
+            Partido partido = encontraPartido(partidos);
+            lblPartido.setText(partido.getNome());
+            lblPartido.setVisible(true);
+        } else if (contador == 5) {
+            Candidato candidato = encontraCandidato(encontraPartido(partidos));
+            lblNome.setText(candidato.getNome());
+            lblNome.setVisible(true);
         }
     }
-    
-    public StringBuilder contaVoto(JLabel[] campos){
-        for (JLabel campo : campos) {
-            voto.append(campo.getText());
+
+    public Partido encontraPartido(Partido[] partidos) {
+        Partido partido = new Partido();
+        String votoTemp = contaVoto(campos).toString().substring(0,2);
+        for (int i = 0; i < 4; i++) {
+            if (partidos[i].getNumero().equals(votoTemp)) {
+                partido = partidos[i];
+            }
         }
-        return voto;
+        return partido;
+    }
+
+    public Candidato encontraCandidato(Partido partido) {
+        Candidato candidato = new Candidato();
+        ArrayList<Candidato> candidatos = partido.getCandidatos();
+        String votoTemp = contaVoto(campos).toString();  
+        for (int i = 0; i < candidatos.size(); i++) {
+            if (candidatos.get(i).getNumero().equals(votoTemp)) {
+                candidato = candidatos.get(i);
+            }
+        }
+        return candidato;
     }
 
     /**
@@ -387,8 +397,12 @@ public class InterfaceUrna extends javax.swing.JPanel {
         lblPartido.setPreferredSize(new java.awt.Dimension(20, 20));
         add(lblPartido);
         lblPartido.setBounds(70, 60, 120, 30);
+
+        lblNome.setMaximumSize(new java.awt.Dimension(34, 14));
+        lblNome.setMinimumSize(new java.awt.Dimension(40, 20));
+        lblNome.setPreferredSize(new java.awt.Dimension(40, 20));
         add(lblNome);
-        lblNome.setBounds(70, 100, 210, 30);
+        lblNome.setBounds(70, 110, 210, 30);
 
         imgUrna.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI/fotoUrna.png"))); // NOI18N
         add(imgUrna);
